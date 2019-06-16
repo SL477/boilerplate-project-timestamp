@@ -24,7 +24,26 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+//Timestamp
+app.get("/api/timestamp/:date_string", function (req, res) {
+  //check if the date is invalid
+  let myRegex = /^[a-z]/;
+  console.log(req.params.date_string.match(myRegex));
+  if (req.params.date_string.match(myRegex)){
+    res.json({"error": "Invalid Date"});
+  }
+  else{
+	  var d = new Date(req.params.date_string);
+	  //Get unix timestamp d.getTime()/1000
+	  res.json({"unix": d.getTime(), "utc": d.toUTCString()});
+  }
+});
 
+//Blank timestamp
+app.get("/api/timestamp/", function (req, res) {
+	var d = new Date();
+	res.json({"unix": d.getTime(), "utc": d.toUTCString()});
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
