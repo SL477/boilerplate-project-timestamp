@@ -7,8 +7,8 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
-		"express": "^4.12.4",
-		"cors": "^2.8.0"
+		"cors": "^2.8.5",
+		"express": "^4.18.2"
 	},
 	"engines": {
 		"node": "4.4.5"
@@ -23,5 +23,8 @@
 		"express",
 		"freecodecamp"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "^8.57.0"
+	}
 }
